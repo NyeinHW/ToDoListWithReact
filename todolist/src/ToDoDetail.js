@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFillTrashFill } from "react-icons/bs";
-import { MdDone,MdBorderColor } from "react-icons/md";
+import { MdDone } from "react-icons/md";
 import {FiEdit} from "react-icons/fi";
 import {FaSave} from "react-icons/fa";
 
@@ -10,7 +10,7 @@ class ToDoDetail extends React.Component{
      constructor(props){
         super(props);
      }
-      state={
+    state={
         text:this.props.todo.text,
         change:false
     };
@@ -21,20 +21,20 @@ class ToDoDetail extends React.Component{
         });
     }
     handleSubmit=(event)=>{
-            event.preventDefault();
-            this.props.onSubmit({
-                id:this.props.todo.id,
-                text:this.state.text,
-                complete:false
-            });
-            //submit
-        }
+        event.preventDefault();
+        this.props.onSubmit({
+            id:this.props.todo.id,
+            text:this.state.text,
+            complete:false
+        });
+    }
     render(){
         let ischangeValue=this.state.change;
         var button;
             if (ischangeValue) {
                 button =<button type="submit" className='todo-normal-button'><FaSave/></button>;
-                } else {
+                }
+            else {
                 button =<button type="submit" className='todo-normal-button'><FiEdit/></button>;
                 }
         return(
@@ -50,14 +50,3 @@ class ToDoDetail extends React.Component{
     }
 }
 export default ToDoDetail;
-/*export default (props)=>(
-<div>
-<input type="text" value={props.todo.text} 
-    onChange={(event)=>{
-        props.changeUpdate(event.target.value,{props.todo.id})
-}} style={{ cursor:props.todo.complete?"not-allowed":""}}/>
-<button onClick={props.onComplete} style={{ color:props.todo.complete?"green":"red"}}>finish</button>
-<button onClick={props.onDelete}>X</button>
-<button style={{display:props.todo.complete?"none":""}} >Edit</button>
-
-</div>);*/
