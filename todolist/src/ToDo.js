@@ -21,7 +21,6 @@ class ToDo extends React.Component{
         this.setState({
             text:""
         });
-        //submit
     }
     render(){
         return(
